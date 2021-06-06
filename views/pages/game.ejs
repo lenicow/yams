@@ -1,0 +1,53 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/assets/styles.css" />
+    <title>Yams</title>
+    <script src="https://kit.fontawesome.com/07ca895015.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
+</head>
+<body class="bodyBackground">
+    <div class="container ">
+        <header>
+            <%- include('../partials/header')%>
+        </header>
+        <div class="row">
+            <div class="col-md">
+               <h1>
+                   <%= title %>
+               </h1>
+               <div>
+                <% if(diceResult.length)  { %>
+                    <h2>
+                        <%= winOrLose %>
+                    </h2>
+
+                    <ul>
+                        <% diceString.forEach(e => { %>
+                            <i style="font-size: 50px" class="fas fa-dice-<%=e%>"></i>
+                        <% }) %>
+                    </ul>
+                    <ul>
+                        <% if(price.length) { %>
+                            <p>Vous avez gagné :</p>
+                            <% price.forEach(({name}) => { %>
+                                <li><%=name%></li>
+                            <% }) %>
+                        <%}%>
+                    </ul>
+                <% } else { %>
+                    <p>Désolé pas de contenu</p>
+                <% } %>
+               </div>
+            </div>
+            <footer>
+                <%- include('../partials/footer')%>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
